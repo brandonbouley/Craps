@@ -14,11 +14,23 @@ public class CrapsGame
      */
     public int processRoll(int total)
     {
-
-        __________________________________________
-    ...
-
-        return result;
+        int result;
+        if (point==0 && (total==2||total==3||total==12) || point>0 && total==7)
+        {
+            result=-1;
+            point=0;
+        }
+        else if (point==0 && (total==7||total==11) || total==point)
+        {
+            result=1;
+            point=0;
+        }
+        else
+            {
+            result=0;
+            point=total;
+            }
+    return result;
     }
 
     /**
