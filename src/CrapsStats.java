@@ -32,25 +32,25 @@ public class CrapsStats extends JFrame
     // Called when a number is entered in the numberIn text field
     public void actionPerformed(ActionEvent e)
     {
-//        String s = numberIn.getText();
-//        int nGames = Integer.parseInt(s);
-//        int result, gameCount = 0, winCount = 0;
-//        Die die1 = new Die();
-//        Die die2 = new Die();
-//
-//        while (gameCount < nGames)
-//        {
-//            die1.roll();
-//            die2.roll();
-//            int total = die1.getNumDots() + die2.getNumDots();
-//            result = game.processRoll(total);
-//            if (result != 0)
-//                gameCount++;
-//            if (result > 0)
-//                winCount++;
-//        }
-//        numberIn.setText("");
-//        statsOut.setText(" Games: " + gameCount + " Wins: " + winCount);
+        String s = numberIn.getText();
+        int nGames = Integer.parseInt(s);
+        int result, gameCount = 0, winCount = 0;
+        Die die1 = new Die();
+        Die die2 = new Die();
+
+        while (gameCount < nGames)
+        {
+            die1.roll();
+            die2.roll();
+            int total = die1.getNumDots() + die2.getNumDots();
+            result = game.processRoll(total);
+            if (result != 0)
+                gameCount++;
+            if (result > 0)
+                winCount++;
+        }
+        numberIn.setText("");
+        statsOut.setText(" Games: " + gameCount + " Wins: " + winCount);
     }
 
     public static void main(String args[])
