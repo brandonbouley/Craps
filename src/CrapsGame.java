@@ -1,8 +1,12 @@
 // Implements the game of Craps logic
 
+import javax.swing.*;
+
 public class CrapsGame
 {
     private int point = 0;
+    private boolean hasRoll=false;
+
 
     /**
      *  Calculates the result of the next dice roll in the Craps game.
@@ -13,24 +17,47 @@ public class CrapsGame
      *  0 if player continues rolling.
      */
     public int processRoll(int total)
-    {
-        int result;
-        if (point==0 && (total==2||total==3||total==12) || point>0 && total==7)
-        {
-            result=-1;
-            point=0;
-        }
-        else if (point==0 && (total==7||total==11) || total==point)
-        {
-            result=1;
-            point=0;
-        }
-        else
-            {
-            result=0;
-            point=total;
+    { int result=0;
+        if (!hasRoll)
+            if (point==0 && (total==2||total==3||total==12))
+         {
+                result=-1;
+                point=0;
+                hasRoll=false;
+
             }
+
+            else if (point==0 && (total==7||total==11))
+            {
+                result=1;
+                point=0;
+                hasRoll=false;
+            }
+
+            else
+                {
+                point=total;
+                hasRoll=true;
+                }
+        else
+            if (total==point)
+            {
+                result = 1;
+                point = 0;
+                hasRoll = false;
+            }
+            else if (total==7)
+            {
+                result = -1;
+                point = 0;
+                hasRoll = false;
+            }
+
+
+
     return result;
+
+
     }
 
     /**
